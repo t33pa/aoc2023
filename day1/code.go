@@ -27,10 +27,10 @@ func replaceLetterToNumber(input string) string {
                 "nine":  "n9e",
         }
 
-        letters := []string{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
+        numberSpellings := []string{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
   
-        for _, letter := range letters {
-                input = strings.Replace(input, letter, dicts[letter], -1)
+        for _, num := range numberSpellings {
+                input = strings.Replace(input, letter, dicts[num], -1)
         }
 
         return input
