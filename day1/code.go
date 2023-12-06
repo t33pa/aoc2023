@@ -30,7 +30,7 @@ func replaceLetterToNumber(input string) string {
         numberSpellings := []string{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
   
         for _, num := range numberSpellings {
-                input = strings.Replace(input, letter, dicts[num], -1)
+                input = strings.Replace(input, num, dicts[num], -1)
         }
 
         return input
