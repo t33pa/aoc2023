@@ -30,11 +30,11 @@ class NumPosition {
 }
 
 
-function isValidPosition($row, $col, $grid) {
+function is_valid_position($row, $col, $grid) {
   return $row >= 0 && $row < count($grid) && $col >= 0 && $col < count($grid[0]);
 }
 
-function isSymbol($char) {
+function is_symbol($char) {
   return $char != '.';
 }
 
@@ -48,7 +48,6 @@ function remove_element_from_stack($gear_stack, $value) {
   return $new_stack;
 }
 
-// Read the file line by line
 $lines = file("input.txt");
 $grid = array();
 
@@ -84,7 +83,7 @@ foreach($num_pos_list as $num_pos) {
   $adjacent_positions = $num_pos->get_adjacent_positions();
   //print_adjacent_positions($adjacent_positions);
   foreach($adjacent_positions as $adj_pos) {
-    if (isValidPosition($adj_pos[0], $adj_pos[1], $grid) && isSymbol($grid[$adj_pos[0]][$adj_pos[1]])) {
+    if (is_valid_position($adj_pos[0], $adj_pos[1], $grid) && is_symbol($grid[$adj_pos[0]][$adj_pos[1]])) {
       $sum += intval($num_pos->value);
       break;
     }
@@ -100,7 +99,7 @@ $gear_stack = array();
 foreach($num_pos_list as $num_pos) {
   $adjacent_positions = $num_pos->get_adjacent_positions();
   foreach($adjacent_positions as $adj_pos) {
-    if (isValidPosition($adj_pos[0], $adj_pos[1], $grid) && $grid[$adj_pos[0]][$adj_pos[1]] == "*") {
+    if (is_valid_position($adj_pos[0], $adj_pos[1], $grid) && $grid[$adj_pos[0]][$adj_pos[1]] == "*") {
       if (count($gear_stack) == 0) {
         array_push($gear_stack, [$num_pos->value, strval($adj_pos[0]).strval($adj_pos[1])]);
       } else {
